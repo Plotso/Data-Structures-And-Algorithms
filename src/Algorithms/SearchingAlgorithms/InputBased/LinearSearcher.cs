@@ -9,7 +9,7 @@
         /// <summary>
         /// Searches the InputArray in for the X. If it finds the item, the index of X is returned, otherwise, -1 would be returned.
         /// </summary>
-        /// <param name="input">The input containing the InputArray and X</param>
+        /// <param name="input">The input containing the InputArray<see cref="IList{int}"/> and X</param>
         /// <returns></returns>
         public int LinearSearch(ISearchingAlgorithmInput input)
         {
