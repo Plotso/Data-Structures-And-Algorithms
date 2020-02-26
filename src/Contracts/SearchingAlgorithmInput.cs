@@ -5,18 +5,14 @@
 
     public class SearchingAlgorithmInput : ISearchingAlgorithmInput
     {
-        private readonly IList<int> _inputArray;
-        private readonly int _x;
-
         public SearchingAlgorithmInput(IList<int> inputArray, int x)
         {
-            //ToDo: check for null values because it's Contracts are a separate project
-            _inputArray = inputArray;
-            _x = x;
+            InputArray = inputArray ?? new List<int>();
+            X = x;
         }
 
-        public int X => _x;
+        public int X { get; }
 
-        public IList<int> InputArray => _inputArray;
+        public IList<int> InputArray { get; }
     }
 }

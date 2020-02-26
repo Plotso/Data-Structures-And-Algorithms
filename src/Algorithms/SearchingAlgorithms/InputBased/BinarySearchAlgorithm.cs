@@ -3,17 +3,20 @@
     using Contracts.Interfaces;
     using System.Collections.Generic;
 
-    public class BinarySearcher
+    /// <summary>
+    /// Binary search algorithm has time complexity O(log n) in worst cases
+    /// </summary>
+    public class BinarySearchAlgorithm
     {
         private const int FirstIndex = 0;
 
         /// <summary>
-        /// Returns the index of X if it's present in the InputArray. Otherwise, -1 would be returned.
+        /// Returns the index of X if it's present in the InputArray. Otherwise, null would be returned.
         /// NOTE: The InputArray in the ISearchingAlgorithmInput should be sorted ascending, otherwise the algorithm wouldn't work.
         /// </summary>
         /// <param name="input">The input containing the InputArray<see cref="IList{int}"/> and X</param>
-        /// <returns></returns>
-        public int BinarySearch(ISearchingAlgorithmInput input, bool recursiveSearch = false)
+        /// <param name="recursiveSearch">Specify whether algorithm should be executed recursively</param>
+        public int? BinarySearch(ISearchingAlgorithmInput input, bool recursiveSearch = false)
         {
             var lastIndex = input.InputArray.Count - 1;
 
@@ -25,7 +28,7 @@
             return IterativeBinarySearch(input.InputArray, input.X);
         }
 
-        private int RecursiveBinarySearch(
+        private int? RecursiveBinarySearch(
             IList<int> list,
             int startingIndex,
             int endingIndex,
@@ -48,10 +51,10 @@
                 return RecursiveBinarySearch(list, middleIndex + 1, endingIndex, x);
             }
 
-            return -1;
+            return null;
         }
 
-        private int IterativeBinarySearch(IList<int> list, int x)
+        private static int? IterativeBinarySearch(IList<int> list, int x)
         {
             var startingIndex = 0;
             var endingIndex = list.Count - 1;
@@ -75,10 +78,10 @@
                 }
             }
 
-            return -1;
+            return null;
         }
 
-        private static int CalculateMiddleIndex(int startingIndex, int endingIndex) =>
-            startingIndex + (endingIndex - startingIndex) / 2;
+        private static int CalculateMiddleIndex(int startingIndex, int endingIndex) 
+            => startingIndex + (endingIndex - startingIndex) / 2;
     }
 }

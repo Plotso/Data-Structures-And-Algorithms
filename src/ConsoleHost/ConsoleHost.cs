@@ -7,6 +7,8 @@
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Linq;
+    using Algorithms.SortingAlgorithms;
+    using Algorithms.SortingAlgorithms.Extensions;
 
     /// <summary>
     /// The project responsible for hosting various algorithms and playgrounds displayed on the console!
@@ -21,8 +23,32 @@
             var list = new List<int> { 11, 22, 33, 44, 55, 77, 66 };
             var searchedItem = 55;
 
+            Console.WriteLine(new string('=', 50));
+            Console.WriteLine("SEARCHING ALGORITHMS");
+            Console.WriteLine(new string('=', 50));
+            
             LinearSearchPlayground(list, searchedItem);
             BinarySearchPlayground(list, searchedItem);
+            
+            Console.WriteLine(new string('=', 50));
+            Console.WriteLine("SORTING ALGORITHMS");
+            Console.WriteLine(new string('=', 50));
+            
+            BubbleSortPlayground(list);
+        }
+
+        private static void BubbleSortPlayground(List<int> list)
+        {
+            var listToSort = list;
+            var bubleSortAlgorithm = new BubbleSortAlgorithm();
+
+            bubleSortAlgorithm.Sort(listToSort);
+            Console.WriteLine($"BubbleSort list in ascending: " + StringifyList(listToSort));
+
+            bubleSortAlgorithm.Sort(listToSort, SortOrder.Descending);
+            Console.WriteLine($"BubbleSort list descending: " + StringifyList(listToSort));
+
+            Console.WriteLine($"BubbleSort list ascending with extension: " + StringifyList(listToSort.BubbleSort()));
         }
 
         private static void LinearSearchPlayground(IList<int> list, int searchedItem)
@@ -39,7 +65,7 @@
 
             sw.Start();
             var input = new SearchingAlgorithmInput(list, searchedItem);
-            var searched = new LinearSearcher();
+            var searched = new LinearSearchAlgorithm();
             Console.WriteLine($">The index of {searchedItem} is {searched.LinearSearch(input)}");
             sw.Stop();
             Console.WriteLine($">The input based approach took {sw.ElapsedMilliseconds}ms to execute");
@@ -66,7 +92,7 @@
             sw.Reset();
 
             var input = new SearchingAlgorithmInput(list, searchedItem);
-            var searched = new BinarySearcher();
+            var searched = new BinarySearchAlgorithm();
 
             sw.Start();
             Console.WriteLine($">The index of {searchedItem} is {searched.BinarySearch(input, true)}");
