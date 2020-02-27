@@ -7,9 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\DataStructures\DataStructures.csproj" />
+    <ProjectReference Include="..\DataStructures\DataStructures.csproj" />
     <ProjectReference Include="..\Algorithms\Algorithms.csproj" />
     <ProjectReference Include="..\Contracts\Contracts.csproj" />
+    <ProjectReference Include="..\DataStructures\DataStructures.csproj" />
   </ItemGroup>
 
 </Project>
