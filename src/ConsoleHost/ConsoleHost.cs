@@ -9,6 +9,7 @@
     using System.Linq;
     using Algorithms.SortingAlgorithms;
     using Algorithms.SortingAlgorithms.Extensions;
+    using DataStructures.Trees;
 
     /// <summary>
     /// The project responsible for hosting various algorithms and playgrounds displayed on the console!
@@ -35,6 +36,13 @@
             Console.WriteLine(new string('=', 50));
             
             BubbleSortPlayground(list);
+            
+            Console.WriteLine(new string('=', 50));
+            Console.WriteLine("DATASTRUCTURES");
+            Console.WriteLine(new string('=', 50));
+            Console.WriteLine("BinarySearchTree");
+            Console.WriteLine(new string('=', 50));
+            BinarySearchTreePlayground();
         }
 
         private static void BubbleSortPlayground(List<int> list)
@@ -105,6 +113,36 @@
             Console.WriteLine($">The input based approach took {sw.ElapsedMilliseconds}ms to execute iteratively");
 
             Console.WriteLine("---The input based approach should be faster for this test");
+        }
+
+        private static void BinarySearchTreePlayground()
+        {
+            var tree = new BinarySearchTree();
+            
+            InsertData(tree);
+            
+            var inorderSort = tree.DisplayTree();
+            var preorderSort = tree.DisplayTree(TraversalType.Preorder);
+            var postorderSort = tree.DisplayTree(TraversalType.Postorder);
+            Console.WriteLine($"Root: {tree.GetRoot().Data}");
+            Console.WriteLine($"Inorder: {inorderSort}");
+            Console.WriteLine($"Preorder: {preorderSort}");
+            Console.WriteLine($"Postorder: {postorderSort}");
+        }
+        
+        private static void InsertData(BinarySearchTree tree)
+        {
+            tree.Insert(30);
+            tree.Insert(35);
+            tree.Insert(57);
+            tree.Insert(15);
+            tree.Insert(63);
+            tree.Insert(49);
+            tree.Insert(89);
+            tree.Insert(77);
+            tree.Insert(67);
+            tree.Insert(98);
+            tree.Insert(91);
         }
 
         private static bool IsSortedAscending(IList<int> list)
