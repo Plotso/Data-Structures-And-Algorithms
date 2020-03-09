@@ -1,4 +1,4 @@
-﻿namespace Algorithms.SortingAlgorithms
+﻿namespace Algorithms.SortingAlgorithms.Simple
 {
     public enum SortOrder
     {

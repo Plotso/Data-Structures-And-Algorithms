@@ -34,7 +34,7 @@
             int endingIndex,
             int x)
         {
-            if (endingIndex > startingIndex)
+            if (endingIndex >= startingIndex)
             {
                 var middleIndex = CalculateMiddleIndex(startingIndex, endingIndex);
 
@@ -50,7 +50,7 @@
 
                 return RecursiveBinarySearch(list, middleIndex + 1, endingIndex, x);
             }
-
+            
             return null;
         }
 

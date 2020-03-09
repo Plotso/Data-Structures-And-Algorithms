@@ -1,6 +1,7 @@
-﻿namespace Algorithms.SortingAlgorithms
+﻿namespace Algorithms.SortingAlgorithms.Simple
 {
     using System.Collections.Generic;
+
     /// <summary>
     /// BubbleSort Algorithm has complexity O(n*n) in worst case
     /// </summary>

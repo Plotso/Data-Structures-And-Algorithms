@@ -8,7 +8,8 @@
     using System.Diagnostics;
     using System.Linq;
     using Algorithms.SortingAlgorithms;
-    using Algorithms.SortingAlgorithms.Extensions;
+    using Algorithms.SortingAlgorithms.Simple;
+    using Algorithms.SortingAlgorithms.Simple.Extensions;
     using DataStructures.Trees;
 
     /// <summary>

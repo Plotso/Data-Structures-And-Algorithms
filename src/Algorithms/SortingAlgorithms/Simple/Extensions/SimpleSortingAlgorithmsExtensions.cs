@@ -1,11 +1,11 @@
-﻿namespace Algorithms.SortingAlgorithms.Extensions
+﻿namespace Algorithms.SortingAlgorithms.Simple.Extensions
 {
     using System.Collections.Generic;
 
     /// <summary>
     /// A static class providing extension methods for using Searching Algorithms over IList
     /// </summary>
-    public static class SortingAlgorithmsExtension
+    public static class SimpleSortingAlgorithmsExtensions
     {
         /// <summary>
         /// Sort collection using BubbleSort algorithm. It has complexity O(n*n)
