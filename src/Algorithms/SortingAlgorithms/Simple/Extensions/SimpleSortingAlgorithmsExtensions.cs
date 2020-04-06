@@ -3,7 +3,7 @@
     using System.Collections.Generic;
 
     /// <summary>
-    /// A static class providing extension methods for using Searching Algorithms over IList
+    /// A static class providing extension methods for using Sorting Algorithms over IList
     /// </summary>
     public static class SimpleSortingAlgorithmsExtensions
     {
