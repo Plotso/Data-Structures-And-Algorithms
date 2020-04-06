@@ -11,12 +11,16 @@
         private IList<int> _randomNumbers;
         private BubbleSortAlgorithm _bubbleSortAlgorithm;
         private CocktailSort _cocktailSort;
+        private SelectionSort _selectionSort;
+        private InsertionSort _insertionSort;
 
         [OneTimeSetUp]
         public void OneTimeSetup()
         {
             _bubbleSortAlgorithm = new BubbleSortAlgorithm();
             _cocktailSort = new CocktailSort();
+            _selectionSort = new SelectionSort();
+            _insertionSort = new InsertionSort();
         }
         
         [SetUp]
@@ -48,6 +52,22 @@
         {
             
             _cocktailSort.Sort(_randomNumbers);
+
+            _randomNumbers.Should().BeInAscendingOrder();
+        }
+
+        [Test]
+        public void SelectionSort_Sort_WithRandomList_ShouldOrderCorrectly()
+        {
+            _selectionSort.Sort(_randomNumbers);
+
+            _randomNumbers.Should().BeInAscendingOrder();
+        }
+        
+        [Test]
+        public void InsertionSort_Sort_WithRandomList_ShouldOrderCorrectly()
+        {
+            _insertionSort.Sort(_randomNumbers);
 
             _randomNumbers.Should().BeInAscendingOrder();
         }

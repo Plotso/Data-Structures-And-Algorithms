@@ -51,7 +51,7 @@
             }
         }
         
-        private bool ShouldSwap(int firstElement, int secondElement)
+        private static bool ShouldSwap(int firstElement, int secondElement)
         {
             return firstElement > secondElement;
         }

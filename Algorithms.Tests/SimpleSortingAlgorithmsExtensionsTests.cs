@@ -17,7 +17,7 @@
         }
         
         [Test]
-        public void BubbleSortAlgorithm_Sort_WithRandomList_ShouldOrderCorrectly(
+        public void BubbleSort_WithRandomList_ShouldOrderCorrectly(
             [Values]SortOrder sortOrder)
         {
             var isAscending = sortOrder == SortOrder.Ascending;
@@ -32,6 +32,22 @@
             {
                 _randomNumbers.Should().BeInDescendingOrder();
             }
+        }
+
+        [Test]
+        public void SelectionSort_WithRandomList_ShouldSortCorrectly()
+        {
+            _randomNumbers.SelectionSort();
+
+            _randomNumbers.Should().BeInAscendingOrder();
+        }
+
+        [Test]
+        public void InsertionSort_WithRandomList_ShouldSortCorrectly()
+        {
+            _randomNumbers.InsertionSort();
+
+            _randomNumbers.Should().BeInAscendingOrder();
         }
     }
 }

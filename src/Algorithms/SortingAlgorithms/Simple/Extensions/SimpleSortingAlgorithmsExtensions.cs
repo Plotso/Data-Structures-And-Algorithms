@@ -39,6 +39,47 @@
             return list;
         }
         
+        /// <summary>
+        /// Sort collection using SelectionSort algorithm. It has complexity O(n*n)
+        /// </summary>
+        public static void SelectionSort(this IList<int> list)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                var min = i;
+                for (int current = i + 1; current < list.Count; current++)
+                {
+                    if (list[current] < list[min])
+                    {
+                        min = current;
+                    }
+                }
+                list.Swap(i, min);
+            }
+        }
+        
+        /// <summary>
+        /// Sort collection using InsertionSort algorithm. It has complexity O(n*n)
+        /// </summary>
+        /// <param name="list"></param>
+        public static void InsertionSort(this IList<int> list)
+        {
+            for (int i = 1; i < list.Count; i++)
+            {
+                var key = list[i];
+                var current = i - 1;
+
+                // move elements greater than key to one position ahead
+                while (current >= 0 && list[current] > key)
+                {
+                    list[current + 1] = list[current];
+                    current--;
+                }
+
+                list[current + 1] = key;
+            }
+        }
+        
         private static bool ShouldSwap(int firstElement, int secondElement, SortOrder sortOrder) 
             => sortOrder == SortOrder.Ascending ?
                 firstElement > secondElement :
