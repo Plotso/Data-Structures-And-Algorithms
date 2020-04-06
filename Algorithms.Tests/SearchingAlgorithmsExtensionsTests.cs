@@ -29,6 +29,15 @@
             indexOfX.Should().NotBeNull();
             indexOfX.Should().Be(X - 1);
         }
+
+        [Test]
+        public void InterpolationSearch_WithExistingItem_ShouldFindCorrectIndex()
+        {
+            var indexOfX = _numbersList.InterpolationSearch(X);
+
+            indexOfX.Should().NotBeNull();
+            indexOfX.Should().Be(X - 1);
+        }
         
         [Test]
         public void BinarySearch_WithMissingItem_ShouldReturnNull()
@@ -42,6 +51,14 @@
         public void LinearSearch_WithMissingItem_ShouldReturnNull()
         {
             var indexOfX = _numbersList.LinearSearch(_nonExistingElement);
+
+            indexOfX.Should().BeNull();
+        }
+        
+        [Test]
+        public void InterpolationSearch_WithMissingItem_ShouldReturnNull()
+        {
+            var indexOfX = _numbersList.InterpolationSearch(_nonExistingElement);
 
             indexOfX.Should().BeNull();
         }
